@@ -1,0 +1,133 @@
+/* Modo claro/escuro automático */
+:root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --card: #f1f1f1;
+    --accent: #7b2ff7;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0d0d0d;
+        --text: #e4e4e4;
+        --card: #1a1a1a;
+        --accent: #9d4bff;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+    width: 100%;
+    padding: 15px 40px;
+    background: var(--card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* ===== GAMES ===== */
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+.game {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 12px #0002;
+    transition: 0.3s;
+}
+
+.game:hover {
+    transform: translateY(-4px);
+}
+
+.game img {
+    width: 100px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    opacity: 0.8;
+}
+
+/* ===== ANIMAÇÃO AO ROLAR ===== */
+.fade-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.fade-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
